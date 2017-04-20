@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alarm Clock</title>
+<body>
+<div class="wrapper">
+  <div id="clock" class="clock"></div>
+  <div id="alarm_status_message"></div>
+  <a id="display_alarm_form" href="#" >Show Alarm</a>
+  <a id="stop_alarm" class="stop_alarm" href="#">Stop Alarm</a>
+  <div id="alarm_form_area" class="alarm_form_area">
+    <a class="close" id="close_form" href="#">close</a>
+    <form id="alarm_form" >
+      <div>
+      <input type="number" id="alarm_hour" name="hour" min="00" max="23" placeholder="00" >:
+      <input type="number" id="alarm_minutes" name="minute" min="00" max="59"  placeholder="00">
+      </div>
+      <div>
+      <input type="submit" id="set_alarm" name="set" value="Set Alarm">
+      <input type="button" id="unset_alarm" name="set" value="Unset Alarm">
+      </div>
+    </form>
+  </div>
+</div>
+</html>
