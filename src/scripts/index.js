@@ -2,6 +2,7 @@
 
 import padder from './modules/padder';
 import Alert from './modules/alarm_audio';
+
 import '../styles/index.scss';
 
 class AlarmClock {
@@ -129,7 +130,7 @@ class AlarmClock {
     setAlarm() {
         /* Sets up the alarm object containing the time when the alarm will go off */
         if (this.alarm_hour.value && this.alarm_minutes.value) {
-            console.log()
+            
             this.alarm = {
                 hour: this.alarm_hour.value,
                 minutes: this.alarm_minutes.value
