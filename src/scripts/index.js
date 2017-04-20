@@ -19,7 +19,7 @@ class AlarmClock {
     }
 
     initDomElements() {
-        /* Register all the elemets fromt he markup that will be used */
+        /* Looks up all the elements to be used and register thems to the class */
         this.clock = document.querySelector("#clock");
         this.alarm_form = document.querySelector("#alarm_form");
         this.alarm_hour = document.querySelector("#alarm_hour");
@@ -43,20 +43,8 @@ class AlarmClock {
 
     }
 
-    setAlarmStatusMessage() {
-
-
-        if (this.alarm_is_set) {
-            this.alarm_status_message.innerHTML = `${this.messages.alarm_set} ${this.alarm.hour}:${Padder(this.alarm.minutes)}`;
-        } else if (!this.alarm_is_set) {
-            this.alarm_status_message.innerHTML = this.messages.alarm_not_set;
-        }
-
-
-    }
-
     initAlarm() {
-
+        
         this.alarm_is_set = false;
         this.alarm_is_playing = false;
         this.alarm = {};
@@ -88,6 +76,18 @@ class AlarmClock {
         }, false);
     }
 
+    setAlarmStatusMessage() {
+
+
+        if (this.alarm_is_set) {
+            this.alarm_status_message.innerHTML = `${this.messages.alarm_set} ${this.alarm.hour}:${Padder(this.alarm.minutes)}`;
+        } else if (!this.alarm_is_set) {
+            this.alarm_status_message.innerHTML = this.messages.alarm_not_set;
+        }
+
+
+    }
+
     getAlarm() {
         /* Gets the alarm_is_set status */
         return this.alarm_is_set;
@@ -110,8 +110,6 @@ class AlarmClock {
         this.alarm_form_area.style.display = this.alarm_form_area.style.display == "none" || this.alarm_form_area.style.display == "" ? "block" : "none";
 
     }
-
-
 
     handleSetAlarm(e) {
         /* Handles submit of the alarm */
