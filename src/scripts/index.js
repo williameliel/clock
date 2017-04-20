@@ -1,7 +1,7 @@
 'use strict';
 
-import padder from './modules/padder';
-import Alert from './modules/alarm_audio';
+import Padder from './modules/padder';
+import Alert from './modules/alert';
 
 import '../styles/index.scss';
 
@@ -20,17 +20,17 @@ class AlarmClock {
 
     initDomElements() {
         /* Register all the elemets fromt he markup that will be used */
-        this.clock = document.getElementById("clock");
-        this.alarm_form = document.getElementById("alarm_form");
-        this.alarm_hour = document.getElementById("alarm_hour");
-        this.alarm_minutes = document.getElementById("alarm_minutes");
-        this.set_alarm = document.getElementById("set_alarm");
-        this.unset_alarm = document.getElementById("unset_alarm");
-        this.display_alarm_form = document.getElementById("display_alarm_form");
-        this.alarm_form_area = document.getElementById("alarm_form_area");
-        this.alarm_status_message = document.getElementById("alarm_status_message");
-        this.stop_alarm = document.getElementById("stop_alarm");
-        this.close_form = document.getElementById("close_form");
+        this.clock = document.querySelector("#clock");
+        this.alarm_form = document.querySelector("#alarm_form");
+        this.alarm_hour = document.querySelector("#alarm_hour");
+        this.alarm_minutes = document.querySelector("#alarm_minutes");
+        this.set_alarm = document.querySelector("#set_alarm");
+        this.unset_alarm = document.querySelector("#unset_alarm");
+        this.display_alarm_form = document.querySelector("#display_alarm_form");
+        this.alarm_form_area = document.querySelector("#alarm_form_area");
+        this.alarm_status_message = document.querySelector("#alarm_status_message");
+        this.stop_alarm = document.querySelector("#stop_alarm");
+        this.close_form = document.querySelector("#close_form");
     }
 
     initMessages() {
@@ -47,7 +47,7 @@ class AlarmClock {
 
 
         if (this.alarm_is_set) {
-            this.alarm_status_message.innerHTML = `${this.messages.alarm_set} ${this.alarm.hour}:${padder(this.alarm.minutes)}`;
+            this.alarm_status_message.innerHTML = `${this.messages.alarm_set} ${this.alarm.hour}:${Padder(this.alarm.minutes)}`;
         } else if (!this.alarm_is_set) {
             this.alarm_status_message.innerHTML = this.messages.alarm_not_set;
         }
@@ -206,7 +206,7 @@ class AlarmClock {
             let min = time.getMinutes();
             let sec = time.getSeconds();
 
-            this.clock.innerHTML = padder(hour) + ":" + padder(min) + ":" + padder(sec);
+            this.clock.innerHTML = Padder(hour) + ":" + Padder(min) + ":" + Padder(sec);
 
             this.checkTime(hour, min);
 

@@ -1,94 +1,105 @@
+/* Main SCSS file for clock display */
 @import "fonts";
+
 $font-family: "digital-7_italicitalic", sans-serif;
 $body-color: blue;
 
 body {
-  font-family: $font-family;
-  color: $body-color;
-}  
-a{
-  $body-color: blue;
-  text-decoration: none;
-  &:hover,&:active{
-    text-decoration: underline;
-  }
-  &:visited{
-    $body-color: blue;
-  }
-}
-.wrapper{
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-}
-.clock{
-  font-size: 50px;
-
-  &.blink {
-    animation: blinker 0.5s linear infinite;
-  }
-
-  @keyframes blinker {  
-    50% { opacity: 0; }
-  }
-
-  div{
-    padding: 10px 0;
-  }
-
-}
-
-.stop_alarm{
-  display: none;
-}
-.alarm_form_area{
-  display: none;
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid $body-color;
-  box-shadow: -4px 4px 0 $body-color;
-  position: absolute;
-  top: 0;
-  margin: 0 auto;
-  float: none;
-  right: 0;
-  left: 0;
-  background: white;
-
-  .close{
-    position: absolute;
-    float: right;
-    right: 0;
-    top:0;
-    text-decoration: none;
-    padding: 5px;
-  }
-  input{
-    cursor: pointer;
-    border:none;
-    outline: none;
-    font-family:  $font-family;
+    font-family: $font-family;
     color: $body-color;
-    background-color: transparent;
-     text-align: left;
-    &:first-child{
-      text-align: right;
+}
+
+a {
+    $body-color: blue;
+
+    text-decoration: none;
+
+    &:hover, &:active {
+        text-decoration: underline;
     }
-  }
-  input[type="number"]{
-    font-family: inherit;
-    font-size: 40px;
-    border:none;
-    outline: none;   
-  }
 
-  input[type="submit"],input[type="button"]{
-    line-height: 1;
-    font-size: 20px;
-    text-transform: uppercase;
-  }
+    &:visited {
+        $body-color: blue;
+    }
+}
 
+.wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
 
+.clock {
+    font-size: 50px;
+
+    &.blink {
+        animation: blinker 0.5s linear infinite;
+    }
+
+    @keyframes blinker {
+        50% {
+            opacity: 0;
+        }
+    }
+
+    div {
+        padding: 10px 0;
+    }
+}
+
+.stop_alarm {
+    display: none;
+}
+
+.alarm_form_area {
+    display: none;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid $body-color;
+    box-shadow: -4px 4px 0 $body-color;
+    position: absolute;
+    top: 0;
+    margin: 0 auto;
+    float: none;
+    right: 0;
+    left: 0;
+    background: white;
+
+    .close {
+        position: absolute;
+        float: right;
+        right: 0;
+        top: 0;
+        text-decoration: none;
+        padding: 5px;
+    }
+
+    input {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-family: $font-family;
+        color: $body-color;
+        background-color: transparent;
+        text-align: left;
+
+        &:first-child {
+            text-align: right;
+        }
+    }
+
+    input[type="number"] {
+        font-family: inherit;
+        font-size: 40px;
+        border: none;
+        outline: none;
+    }
+
+    input[type="submit"], input[type="button"] {
+        line-height: 1;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
 }
