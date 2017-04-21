@@ -12,6 +12,7 @@ body {
 a {
     color: $body-color;
     text-decoration: none;
+    padding: 5px 10px;
 
     &:hover, &:active {
         text-decoration: underline;
@@ -28,6 +29,10 @@ a {
     margin: 0 auto;
     text-align: center;
     position: relative;
+
+    div {
+        padding: 10px 0;
+    }
 }
 
 .clock {
@@ -41,10 +46,6 @@ a {
         50% {
             opacity: 0;
         }
-    }
-
-    div {
-        padding: 10px 0;
     }
 }
 
