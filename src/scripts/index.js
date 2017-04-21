@@ -40,8 +40,7 @@ class AlarmClock {
         /* Init all messages to be  display on the status */
         this.messages = {
             alarm_not_set: "Alarm is not set",
-            alarm_set: "Alarm is set to",
-            alarm_gone_off: "Alarm gone off"
+            alarm_set: "Alarm is set to"
         }
 
     }
