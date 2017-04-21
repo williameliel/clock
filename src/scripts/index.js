@@ -44,7 +44,7 @@ class AlarmClock {
     }
 
     initAlarm() {
-        
+        /* Init/Reset alarm variables */
         this.alarm_is_set = false;
         this.alarm_is_playing = false;
         this.alarm = {};
@@ -77,8 +77,7 @@ class AlarmClock {
     }
 
     setAlarmStatusMessage() {
-
-
+        /* Change the alarm message */
         if (this.alarm_is_set) {
             this.alarm_status_message.innerHTML = `${this.messages.alarm_set} ${this.alarm.hour}:${Padder(this.alarm.minutes)}`;
         } else if (!this.alarm_is_set) {
@@ -93,7 +92,7 @@ class AlarmClock {
         return this.alarm_is_set;
     }
     addBlink() {
-        
+
         this.clock.classList.add("blink");
     }
 

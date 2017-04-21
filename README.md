@@ -33,6 +33,7 @@ npm run build
 - Ability to switch between 12/24 hour mode
 - Better abstraction of html and js 
 - Implement View module to take care of display and front end manipulation
+- Improve UX / UI
 - Add API public functions
 - Set up CLI capabilities
 - Add integration/unit test
