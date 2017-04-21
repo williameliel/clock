@@ -93,22 +93,18 @@ class AlarmClock {
         return this.alarm_is_set;
     }
     addBlink() {
+        
         this.clock.classList.add("blink");
     }
 
     removeBlink() {
+
         this.clock.classList.remove("blink");
     }
 
     toggleDisplayAlarmForm(e) {
         e.preventDefault();
         this.showHideForm();
-    }
-
-    showHideForm() {
-
-        this.alarm_form_area.style.display = this.alarm_form_area.style.display == "none" || this.alarm_form_area.style.display == "" ? "block" : "none";
-
     }
 
     handleSetAlarm(e) {
@@ -123,6 +119,12 @@ class AlarmClock {
         e.preventDefault();
 
         this.unsetAlarm();
+    }
+
+    showHideForm() {
+
+        this.alarm_form_area.style.display = this.alarm_form_area.style.display == "none" || this.alarm_form_area.style.display == "" ? "block" : "none";
+
     }
 
     setAlarm() {
