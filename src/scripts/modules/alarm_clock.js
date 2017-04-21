@@ -1,3 +1,4 @@
+/* Alarm clock class, renders clock and adds the ability to set up the alarm */
 
 import Padder from './padder';
 import Alert from './alert';

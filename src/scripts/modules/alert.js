@@ -1,4 +1,4 @@
-/* Simple audio player */
+/* Simple alert audio player */
 
 import audio_file from '../../audio/default.mp3';
 
