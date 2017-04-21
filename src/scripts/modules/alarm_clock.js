@@ -2,6 +2,11 @@
 import Padder from './padder';
 import Alert from './alert';
 
+const MESSAGES = {
+        alarm_not_set: "Alarm is not set",
+        alarm_set: "Alarm is set to"
+    };
+
 class AlarmClock {
 
     constructor() {
@@ -9,7 +14,6 @@ class AlarmClock {
         this.interval = 1000;
         this.initDomElements();
         this.addListeners();
-        this.initMessages();
         this.initAlarm();
         this.setAlarmStatusMessage();
 
@@ -29,16 +33,6 @@ class AlarmClock {
         this.set_alarm = this.alarm_form_area.querySelector("#set_alarm");
         this.unset_alarm = this.alarm_form_area.querySelector("#unset_alarm");
         this.close_form = this.alarm_form_area.querySelector("#close_form");
-
-    }
-
-    initMessages() {
-        
-        /* Init all messages to be  display on the status */
-        this.messages = {
-            alarm_not_set: "Alarm is not set",
-            alarm_set: "Alarm is set to"
-        }
 
     }
 
@@ -82,9 +76,9 @@ class AlarmClock {
         
         /* Change the alarm message */
         if (this.alarm_is_set) {
-            this.alarm_status_message.innerHTML = `${this.messages.alarm_set} ${this.alarm.hour}:${Padder(this.alarm.minutes)}`;
+            this.alarm_status_message.innerHTML = `${MESSAGES.alarm_set} ${this.alarm.hour}:${Padder(this.alarm.minutes)}`;
         } else if (!this.alarm_is_set) {
-            this.alarm_status_message.innerHTML = this.messages.alarm_not_set;
+            this.alarm_status_message.innerHTML = MESSAGES.alarm_not_set;
         }
 
     }
@@ -152,6 +146,7 @@ class AlarmClock {
 
     unsetAlarm() {
 
+        /* Removes the alarm if previously set */
         this.alarm_is_set = false;
         this.resetAlarmForm();
         this.setAlarmStatusMessage();
@@ -160,47 +155,51 @@ class AlarmClock {
 
     resetAlarmForm() {
 
+        /* inititates the alarm form inputs to zero */
         this.alarm_form.reset();
 
     }
 
     startAlarm() {
 
+        /* Makes the alarm go off*/
         this.addBlink();
         this.alert.play();
         this.alarm_is_playing = true;
-        this.showStop();
+        this.showStopAlarmButton();
 
     }
 
     stopAlarm() {
 
+        /* Stops alarm if it has gone off*/
         this.removeBlink();
         this.alert.pause();
-        this.hideStop();
+        this.hideStopAlarmButton();
 
     }
 
-    showStop() {
+    showStopAlarmButton() {
 
+        /* Shows the stop alarm button */
         this.stop_alarm.style.display = "inline";
 
     }
 
-    hideStop() {
+    hideStopAlarmButton() {
 
+        /* hides the stop alarm button */
         this.stop_alarm.style.display = "none";
 
     }
 
     checkTime(hour, minutes) {
 
-        /* Checks for time of alarm */
+        /* Checks for time of alarm to see whether needs to go off */
         if (!this.alarm_is_set || Object.keys(this.alarm).length === 0) {
             return false;
         }
         if (hour == this.alarm.hour && minutes == this.alarm.minutes && this.alarm_is_playing === false) {
-
 
             this.startAlarm();
             this.alarm_is_playing = true;
@@ -210,7 +209,7 @@ class AlarmClock {
 
     renderClock() {
 
-         
+        /* Sets an infitine interval to render the clock into the clock area and listen for alarm match*/ 
         setInterval(() => {
 
             let time = new Date();
