@@ -31,8 +31,9 @@ npm run build
 
 - Ability to change color scheme
 - Ability to switch between 12/24 hour mode
-- Better abstraction of html and js 
-- Implement View module to take care of display and front end manipulation
+- Set up better validation of alarm fields
+- Better abstraction of HTML and javascript 
+- Implement view module to take care of display and contoller for front end manipulation
 - Improve UX / UI
 - Add API public functions
 - Set up CLI capabilities

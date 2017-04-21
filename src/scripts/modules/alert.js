@@ -1,4 +1,5 @@
 /* Simple audio player */
+
 import audio_file from '../../audio/default.mp3';
 
 class Alert {

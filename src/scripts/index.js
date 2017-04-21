@@ -19,6 +19,7 @@ class AlarmClock {
     }
 
     initDomElements() {
+        
         /* Looks up all the elements to be used and register thems to the class */
         this.clock = document.querySelector("#clock");
         this.alarm_form = document.querySelector("#alarm_form");
@@ -31,9 +32,11 @@ class AlarmClock {
         this.alarm_status_message = document.querySelector("#alarm_status_message");
         this.stop_alarm = document.querySelector("#stop_alarm");
         this.close_form = document.querySelector("#close_form");
+
     }
 
     initMessages() {
+        
         /* Init all messages to be  display on the status */
         this.messages = {
             alarm_not_set: "Alarm is not set",
@@ -44,6 +47,7 @@ class AlarmClock {
     }
 
     initAlarm() {
+        
         /* Init/Reset alarm variables */
         this.alarm_is_set = false;
         this.alarm_is_playing = false;
@@ -54,8 +58,8 @@ class AlarmClock {
 
 
     addListeners() {
+        
         /* Add listener events to form elements */
-
         this.alarm_form.addEventListener("submit", (e) => {
             this.handleSetAlarm(e);
         }, false);
@@ -79,6 +83,7 @@ class AlarmClock {
     }
 
     setAlarmStatusMessage() {
+        
         /* Change the alarm message */
         if (this.alarm_is_set) {
             this.alarm_status_message.innerHTML = `${this.messages.alarm_set} ${this.alarm.hour}:${Padder(this.alarm.minutes)}`;
@@ -86,13 +91,15 @@ class AlarmClock {
             this.alarm_status_message.innerHTML = this.messages.alarm_not_set;
         }
 
-
     }
 
     getAlarm() {
+       
         /* Gets the alarm_is_set status */
         return this.alarm_is_set;
+    
     }
+    
     addBlink() {
 
         this.clock.classList.add("blink");
@@ -104,21 +111,23 @@ class AlarmClock {
     }
 
     toggleDisplayAlarmForm(e) {
+      
         e.preventDefault();
         this.showHideForm();
+    
     }
 
     handleSetAlarm(e) {
+        
         /* Handles submit of the alarm */
         e.preventDefault();
-
         this.setAlarm();
     }
 
     handleUnSetAlarm(e) {
+        
         /* Handles submit of the alarm */
         e.preventDefault();
-
         this.unsetAlarm();
     }
 
@@ -129,6 +138,7 @@ class AlarmClock {
     }
 
     setAlarm() {
+       
         /* Sets up the alarm object containing the time when the alarm will go off */
         if (this.alarm_hour.value && this.alarm_minutes.value) {
             
@@ -149,11 +159,13 @@ class AlarmClock {
         this.alarm_is_set = false;
         this.resetAlarmForm();
         this.setAlarmStatusMessage();
+
     }
 
     resetAlarmForm() {
 
         this.alarm_form.reset();
+
     }
 
     startAlarm() {
@@ -162,6 +174,7 @@ class AlarmClock {
         this.alert.play();
         this.alarm_is_playing = true;
         this.showStop();
+
     }
 
     stopAlarm() {
@@ -169,16 +182,19 @@ class AlarmClock {
         this.removeBlink();
         this.alert.pause();
         this.hideStop();
+
     }
 
     showStop() {
 
         this.stop_alarm.style.display = "inline";
+
     }
 
     hideStop() {
 
         this.stop_alarm.style.display = "none";
+
     }
 
     checkTime(hour, minutes) {
@@ -197,8 +213,8 @@ class AlarmClock {
     }
 
     renderClock() {
-        /* Renders Alarm clock*/
 
+         
         setInterval(() => {
 
             let time = new Date();
@@ -213,6 +229,7 @@ class AlarmClock {
 
         }, this.interval);
     }
+
 }
 
 const clock = new AlarmClock();
