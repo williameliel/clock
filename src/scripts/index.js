@@ -22,8 +22,8 @@ class AlarmClock {
         /* Looks up all the elements to be used and register thems to the class */
         this.clock = document.querySelector("#clock");
         this.alarm_form = document.querySelector("#alarm_form");
-        this.alarm_hour = document.querySelector("#alarm_hour");
-        this.alarm_minutes = document.querySelector("#alarm_minutes");
+        this.alarm_hour = this.alarm_form.querySelector("#alarm_hour");
+        this.alarm_minutes = this.alarm_form.querySelector("#alarm_minutes");
         this.set_alarm = document.querySelector("#set_alarm");
         this.unset_alarm = document.querySelector("#unset_alarm");
         this.display_alarm_form = document.querySelector("#display_alarm_form");
@@ -55,6 +55,7 @@ class AlarmClock {
 
     addListeners() {
         /* Add listener events to form elements */
+
         this.alarm_form.addEventListener("submit", (e) => {
             this.handleSetAlarm(e);
         }, false);
@@ -74,6 +75,7 @@ class AlarmClock {
         this.close_form.addEventListener("click", (e) => {
             this.toggleDisplayAlarmForm(e);
         }, false);
+
     }
 
     setAlarmStatusMessage() {
