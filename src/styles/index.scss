@@ -11,7 +11,7 @@ body {
 
 input[type="submit"], input[type="button"], a {
     color: $body-color;
-    text-decoration: underline;
+    text-decoration: none;
     padding: 5px 10px;
 
     &:hover, &:active {
@@ -98,7 +98,5 @@ input[type="submit"], input[type="button"], a {
     input[type="submit"], input[type="button"] {
         line-height: 1;
         font-size: 18px;
-        text-transform: uppercase;
-        text-decoration: underline;
     }
 }
