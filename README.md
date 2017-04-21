@@ -9,8 +9,9 @@ This is a very light and simple alarm clock. The Alarm clock is able to:
 - Set/Unset an Alarm
 - Play sound when alarm has gone off
 
-### Demo
-https://williameliel.github.io/clock/
+[Demo](https://williameliel.github.io/clock/ "Demo")
+
+
 
 ### Installation
 
