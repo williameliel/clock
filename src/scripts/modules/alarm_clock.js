@@ -18,7 +18,7 @@ class AlarmClock {
     initDomElements() {
         
         /* Looks up all the elements to be used and register thems to the class */
-        this.clock = document.querySelector("#clock");
+        this.clock_area  = document.querySelector("#clock_area");
         this.alarm_status_message = document.querySelector("#alarm_status_message");
         this.display_alarm_form = document.querySelector("#display_alarm_form");
         this.stop_alarm = document.querySelector("#stop_alarm");
@@ -98,12 +98,12 @@ class AlarmClock {
     
     addBlink() {
 
-        this.clock.classList.add("blink");
+        this.clock_area.classList.add("blink");
     }
 
     removeBlink() {
 
-        this.clock.classList.remove("blink");
+        this.clock_area.classList.remove("blink");
     }
 
     toggleDisplayAlarmForm(e) {
@@ -219,7 +219,7 @@ class AlarmClock {
             let min = time.getMinutes();
             let sec = time.getSeconds();
 
-            this.clock.innerHTML = Padder(hour) + ":" + Padder(min) + ":" + Padder(sec);
+            this.clock_area.innerHTML = Padder(hour) + ":" + Padder(min) + ":" + Padder(sec);
 
             this.checkTime(hour, min);
 
